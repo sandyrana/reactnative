@@ -11,7 +11,7 @@ export default function Add({ navigation }) {
   const [cameraPermission, setCameraPermission] = useState(null);
   const [camera, setCamera] = useState(null);
   const [imageUri, setImageUri] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.back);
+  const [type, setType] = useState(Camera.Constants.Type.front);
   const [agree, setAgree] = useState(false);
   const [ddata, setData] = useState([]);
 

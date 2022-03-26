@@ -13,7 +13,9 @@
     $otp = $decoded['otp'];
     $image = $decoded['image'];
 
-    $type = $decoded['type'];   
+    $type = $decoded['type'];  
+    $logintype = $decoded['value'];   
+
 
 
 // $data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $image));
@@ -143,7 +145,21 @@
 				$response['msg'] = "Please enter details";
 	       	}
 
+       }else if($type == 'cal'){
+       		$Sql_Query = "UPDATE UserRegistrationTable SET l_finger='$logintype' Where email='$email'";
+       		// $response['status'] = 200 ;
+		       			 if(mysqli_query($connection,$Sql_Query)){
+		       			 	$response['status'] = 200 ;
+							$response['msg'] = 'status changed!';
+		       			 }
+       }else if($type =='finlo'){
+       	$Sql_Query = "UPDATE UserRegistrationTable SET l_image='$logintype' Where email='$email'";
+       		// $response['status'] = 200 ;
+		       			 if(mysqli_query($connection,$Sql_Query)){
+		       			 	$response['status'] = 200 ;
+							$response['msg'] = 'status changed!';
        }
+   }
 
 		
 		
